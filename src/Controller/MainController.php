@@ -23,7 +23,8 @@ class MainController extends AbstractController
      */
     public function custom(Request $request)
     {
-        dump($request);
-        return new Response('<h1>Custom Page</h1>');
+        // dump($request);
+        $name = $request->get('name');
+        return new Response('<h1>Welcome to '.$name.'</h1>');
     }
 }
