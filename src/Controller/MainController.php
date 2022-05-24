@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,14 +15,15 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        return new Response(content:'<h1>Welcome to SFCourse</h1>');
+        return new Response('<h1>Welcome to SFCourse</h1>');
     }
 
     /**
-     * @Route("/custom", name="custom")
+     * @Route("/custom/{name?}", name="custom")
      */
-    public function custom()
+    public function custom(Request $request)
     {
-        return new Response(content:'<h1>Custom Page</h1>');
+        dump($request);
+        return new Response('<h1>Custom Page</h1>');
     }
 }
